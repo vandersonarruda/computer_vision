@@ -20,13 +20,12 @@ out = cv2.VideoWriter('output.mp4', fourcc, fps,
 while (cap.isOpened()):
     result, frame = cap.read()
     if result == True:
-
         # convert to gray
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         # detect edges
         edges = cv2.Canny(gray, 50, 150, apertureSize=3)
-        edges_bgr  =cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
+        edges_bgr = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
         out.write(edges_bgr)
 
         cv2.imshow('edges', edges)
